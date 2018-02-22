@@ -6,7 +6,14 @@ import 'vuetify/dist/vuetify.min.css'
 import App from './App'
 import router from './router'
 
-Vue.use(Vuetify)
+Vue.use(Vuetify, {
+  theme: {
+    'orangeambre': '#FFA726',
+    'jauneclair': '#FBC02D',
+    'orangeclair': '#FFB74D',
+    'orangefonce': '#EF6C00'
+  }
+})
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

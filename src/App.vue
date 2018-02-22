@@ -1,19 +1,26 @@
 <template>
 <v-app>
-  <v-navigation-drawer app></v-navigation-drawer>
-  <v-toolbar app></v-toolbar>
-  <v-content>
+  <v-navigation-drawer v-model="drawer" clipped app></v-navigation-drawer>
+  <v-toolbar color="orangefonce" clipped-left app>
+    <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+  </v-toolbar>
+  <v-content app>
     <v-container fluid>
       <router-view></router-view>
     </v-container>
   </v-content>
-  <v-footer app></v-footer>
+  <v-footer fixed app></v-footer>
 </v-app>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return ({
+      drawer: false
+    })
+  }
 }
 </script>
 
