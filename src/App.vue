@@ -14,7 +14,7 @@
             <v-list-tile-title>Page Admin</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="changeRoute('/test/')">
+        <v-list-tile @click="changeRoute('/gamecreation/')">
           <v-list-tile-action>
             <v-icon>contact_mail</v-icon>
           </v-list-tile-action>

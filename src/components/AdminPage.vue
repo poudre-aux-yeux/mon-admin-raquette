@@ -1,12 +1,12 @@
 <template>
   <div class="adminpage">
     <h1>Page d'Admin</h1>
-    <v-btn v-on:click="buttonCreation" large color="error">
+    <v-btn @click="changeRoute('/GameCreation/')" large color="error">
          <v-icon dark>add</v-icon>
          Créer un match
     </v-btn>
     <h2>Gestions</h2>
-    <v-btn large color="primary">Joueurs</v-btn>
+    <v-btn @click="changeRoute('/gestionplayer/')" large color="primary">Joueurs</v-btn>
     <v-btn large color="warning">Arbitres</v-btn>
     <v-btn large color="success">Terrains</v-btn>
   </div>
@@ -20,8 +20,8 @@ export default {
     })
   },
   methods: {
-    buttonCreation: function () {
-      this.$router.push({ path: '/test/' })
+    changeRoute (route) {
+      this.$router.push({ path: route })
     }
   }
 }
