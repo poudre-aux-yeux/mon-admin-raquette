@@ -5,10 +5,11 @@
          <v-icon dark>add</v-icon>
          Créer un match
     </v-btn>
-    <h2>Gestions</h2>
-    <v-btn @click="changeRoute('/gestionplayer/')" large color="primary">Joueurs</v-btn>
+    <!--<h2>Gestions</h2>-->
+    <v-btn @click="changeRoute('/gestionpage/')" large color="primary">Page de gestion</v-btn>
+    <!--<v-btn @click="changeRoute('/gestionplayer/')" large color="primary">Joueurs</v-btn>
     <v-btn large color="warning">Arbitres</v-btn>
-    <v-btn large color="success">Terrains</v-btn>
+    <v-btn large color="success">Terrains</v-btn>-->
   </div>
 </template>
 
@@ -30,8 +31,8 @@ export default {
 <style>
     .content
     {
-        background-image: url("../assets/ball.jpg");
-        background-size: cover
+        background-image: url("../assets/tennis.jpg");
+        background-size: cover;
     }
     .login-container{
       background-image: url("https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb");
@@ -43,7 +44,7 @@ export default {
         padding-bottom: 50px;
     }
     h2 {
-       color: rgb(177, 153, 17);
+       color: rgb(22, 149, 223);
        font-size: 30px;
        padding-bottom: 30px;
        padding-top: 50px;

@@ -5,8 +5,8 @@
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
         <v-toolbar color="indigo" dark>
-          <v-toolbar-side-icon></v-toolbar-side-icon>
-          <v-toolbar-title>Inbox</v-toolbar-title>
+           <v-icon>mdi-account-group</v-icon>
+          <v-toolbar-title>Liste des joueurs</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-btn icon>
             <v-icon>search</v-icon>
@@ -59,4 +59,12 @@ export default {
 </script>
 
 <style>
+    h1 {
+        color: rgb(54, 130, 244);
+    }
+    .content
+    {
+        background-image: url("../assets/tennis.jpg");
+        background-size: cover;
+    }
 </style>

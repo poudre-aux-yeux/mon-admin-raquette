@@ -16,9 +16,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.content
+    .content
     {
-        /*background-image: url("../assets/point.jpg");*/
-        background-size: cover
+        background-image: url("../assets/tennis.jpg");
+        background-size: cover;
     }
 </style>

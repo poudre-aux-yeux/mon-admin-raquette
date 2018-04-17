@@ -8,7 +8,7 @@
       <v-list dense>
         <v-list-tile @click="changeRoute('/adminpage/')">
           <v-list-tile-action>
-            <v-icon>home</v-icon>
+            <v-icon>mdi-home-outline</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>Page Admin</v-list-tile-title>
@@ -16,7 +16,7 @@
         </v-list-tile>
         <v-list-tile @click="changeRoute('/gestionpage/')">
           <v-list-tile-action>
-            <v-icon>contact_mail</v-icon>
+            <v-icon>mdi-table-edit</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>Gestion</v-list-tile-title>
@@ -24,7 +24,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar color="orangefonce" dark fixed app>
+    <v-toolbar color="blue lighten-2" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Admin raquette</v-toolbar-title>
     </v-toolbar>
@@ -33,7 +33,7 @@
       <router-view></router-view>
     </v-container>
   </v-content>
-    <v-footer color="orangefonce" app>
+    <v-footer color="blue lighten-2" app>
       <span class="white--text">&copy; 2018</span>
     </v-footer>
 </v-app>
@@ -64,4 +64,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+.content
+    {
+        background-image: url("./assets/tennis.jpg");
+        background-size: cover;
+    }
 </style>

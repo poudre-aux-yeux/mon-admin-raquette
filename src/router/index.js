@@ -6,6 +6,7 @@ import AdminPage from '@/components/AdminPage'
 import GameCreation from '@/components/GameCreation'
 import GestionPlayer from '@/components/GestionPlayer'
 import GestionPage from '@/components/GestionPage'
+import PagePlayer from '@/components/PagePlayer'
 import 'vue-material-design-icons/styles.css'
 import MenuIcon from 'vue-material-design-icons/menu.vue'
 
@@ -44,6 +45,11 @@ export default new Router({
       path: '/gestionpage',
       name: 'GestionPage',
       component: GestionPage
+    },
+    {
+      path: '/pageplayer',
+      name: 'PagePlayer',
+      component: PagePlayer
     }
   ]
 })

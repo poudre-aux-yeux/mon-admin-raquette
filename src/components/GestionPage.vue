@@ -3,7 +3,6 @@
      <v-layout column>
     <v-flex xs12 sm6 offset-sm3>
       <v-toolbar color="indigo" dark>
-        <!--<v-toolbar-side-icon></v-toolbar-side-icon>-->
         <v-icon>mdi-tennis</v-icon>
         <v-toolbar-title>Gestion</v-toolbar-title>
       </v-toolbar>
@@ -30,13 +29,11 @@
                 </v-card-media>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn icon>
-                    <v-icon >account-edit</v-icon>
+                  <v-btn @click="newElement(card.title)" icon>
+                    <v-icon >mdi-shape-circle-plus</v-icon>
                   </v-btn>
-                  <v-btn icon>
-                    <v-icon >add circle outline</v-icon>
-                  </v-btn>
-                  <v-btn icon>
+                  <v-btn @click="listElement(card.title)" icon>
+                    <v-icon >mdi-format-list-bulleted</v-icon>
                   </v-btn>
                 </v-card-actions>
               </v-card>
@@ -60,6 +57,28 @@ export default {
     ]
   }),
   methods: {
+    newElement (title) {
+      if (title === 'Joueurs') {
+        this.$router.push({ path: '/PagePlayer' })
+      }
+      if (title === 'Arbitres') {
+        this.$router.push({ path: '/NewArbitre' })
+      }
+      if (title === 'Terrains') {
+        this.$router.push({ path: '/NewTerrain' })
+      }
+    },
+    listElement (title) {
+      if (title === 'Joueurs') {
+        this.$router.push({ path: '/GestionPlayer' })
+      }
+      if (title === 'Arbitres') {
+        this.$router.push({ path: '/GestionArbitre' })
+      }
+      if (title === 'Terrains') {
+        this.$router.push({ path: '/GestionTerrain' })
+      }
+    }
   }
 }
 </script>
@@ -68,7 +87,7 @@ export default {
 <style scoped>
 .content
     {
-        /*background-image: url("../assets/point.jpg");*/
+        background-image: url("../assets/tennis.jpg");
         background-size: cover
     }
 </style>
