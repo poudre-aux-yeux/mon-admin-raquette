@@ -27,6 +27,13 @@
     <v-toolbar color="blue lighten-2" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Admin raquette</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn icon @click="changeRoute('/adminpage/')">
+        <v-icon>mdi-home-outline</v-icon>
+      </v-btn>
+      <v-btn icon @click="changeRoute('/gestionpage/')">
+        <v-icon>mdi-table-edit</v-icon>
+      </v-btn>
     </v-toolbar>
     <v-content app>
     <v-container fluid>

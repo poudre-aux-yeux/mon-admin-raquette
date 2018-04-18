@@ -65,7 +65,7 @@ export default {
         this.$router.push({ path: '/NewArbitre' })
       }
       if (title === 'Terrains') {
-        this.$router.push({ path: '/NewTerrain' })
+        this.$router.push({ path: '/PageStadium' })
       }
     },
     listElement (title) {
