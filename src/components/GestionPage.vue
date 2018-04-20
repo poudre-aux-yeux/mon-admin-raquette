@@ -62,7 +62,7 @@ export default {
         this.$router.push({ path: '/PagePlayer' })
       }
       if (title === 'Arbitres') {
-        this.$router.push({ path: '/NewArbitre' })
+        this.$router.push({ path: '/PageReferee' })
       }
       if (title === 'Terrains') {
         this.$router.push({ path: '/PageStadium' })
@@ -73,10 +73,10 @@ export default {
         this.$router.push({ path: '/GestionPlayer' })
       }
       if (title === 'Arbitres') {
-        this.$router.push({ path: '/GestionArbitre' })
+        this.$router.push({ path: '/GestionReferee' })
       }
       if (title === 'Terrains') {
-        this.$router.push({ path: '/GestionTerrain' })
+        this.$router.push({ path: '/GestionStadium' })
       }
     }
   }

@@ -6,8 +6,11 @@ import AdminPage from '@/components/AdminPage'
 import GameCreation from '@/components/GameCreation'
 import GestionPlayer from '@/components/GestionPlayer'
 import GestionPage from '@/components/GestionPage'
+import GestionStadium from '@/components/GestionStadium'
+import GestionReferee from '@/components/GestionReferee'
 import PagePlayer from '@/components/PagePlayer'
 import PageStadium from '@/components/PageStadium'
+import PageReferee from '@/components/PageReferee'
 import 'vue-material-design-icons/styles.css'
 import MenuIcon from 'vue-material-design-icons/menu.vue'
 
@@ -56,6 +59,21 @@ export default new Router({
       path: '/pagestadium',
       name: 'PageStadium',
       component: PageStadium
+    },
+    {
+      path: '/gestionstadium',
+      name: 'GestionStadium',
+      component: GestionStadium
+    },
+    {
+      path: '/gestionreferee',
+      name: 'GestionReferee',
+      component: GestionReferee
+    },
+    {
+      path: '/pagereferee',
+      name: 'PageReferee',
+      component: PageReferee
     }
   ]
 })
