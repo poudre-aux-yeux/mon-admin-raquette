@@ -48,65 +48,65 @@
 <script>
 import axios from 'axios'
 
-  export default {
-    data: () => ({
-      valid: true,
-      date: '',
-      dateRules: [
-        v => !!v || 'Date is required',
-        v => (v && v.length <= 10) || 'Name must be less than 10 characters'
-      ],
-      players: '',
-      playersRules: [
-        v => !!v || 'E-mail is required',
-        v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
-      ],
-      referee: '',
-      refereeRules: [
-        v => !!v || 'E-mail is required',
-        v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
-      ],
-      stadium: '',
-      stadiumRules: [
-        v => !!v || 'E-mail is required',
-        v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
-      ],
-      select: null,
-      items: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4'
-      ],
-      checkbox: false
-    }),
+export default {
+  data: () => ({
+    valid: true,
+    date: '',
+    dateRules: [
+      v => !!v || 'Date is required',
+      v => (v && v.length <= 10) || 'Name must be less than 10 characters'
+    ],
+    players: '',
+    playersRules: [
+      v => !!v || 'E-mail is required',
+      v =>
+        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+        'E-mail must be valid'
+    ],
+    referee: '',
+    refereeRules: [
+      v => !!v || 'E-mail is required',
+      v =>
+        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+        'E-mail must be valid'
+    ],
+    stadium: '',
+    stadiumRules: [
+      v => !!v || 'E-mail is required',
+      v =>
+        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+        'E-mail must be valid'
+    ],
+    select: null,
+    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+    checkbox: false
+  }),
 
-    methods: {
-      submit () {
-        if (this.$refs.form.validate()) {
-          // Native form submission is not yet supported
-          axios.post('/api/submit', {
-            date: this.date,
-            players: this.players,
-            referee: this.referee,
-            stadium: this.stadium,
-            select: this.select,
-            checkbox: this.checkbox
-          })
-        }
-      },
-      clear () {
-        this.$refs.form.reset()
+  methods: {
+    submit () {
+      if (this.$refs.form.validate()) {
+        // Native form submission is not yet supported
+        axios.post('/api/submit', {
+          date: this.date,
+          players: this.players,
+          referee: this.referee,
+          stadium: this.stadium,
+          select: this.select,
+          checkbox: this.checkbox
+        })
       }
+    },
+    clear () {
+      this.$refs.form.reset()
     }
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .content
-    {
-        background-image: url("../assets/tennis.jpg");
-        background-size: cover;
-    }
+.content {
+  background-image: url("../assets/tennis.jpg");
+  background-size: cover;
+}
 </style>

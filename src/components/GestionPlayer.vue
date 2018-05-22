@@ -16,15 +16,12 @@
           </v-btn>
         </v-toolbar>
         <v-list>
-          <v-list-tile avatar v-for="item in items" :key="item.title" @click="changeRoute()">
-            <v-list-tile-action>
-              <v-icon v-if="item.icon" color="pink">star</v-icon>
-            </v-list-tile-action>
+          <v-list-tile avatar v-for="player in players" :key="player.id" @click="changeRoute()">
             <v-list-tile-content>
-              <v-list-tile-title v-text= "item.title"></v-list-tile-title>
+              <v-list-tile-title v-text="player.name"></v-list-tile-title>
             </v-list-tile-content>
             <v-list-tile-avatar>
-              <img :src="item.avatar" alt="avatar">
+              <img :src="player.image" alt="avatar">
             </v-list-tile-avatar>
           </v-list-tile>
         </v-list>
@@ -38,22 +35,28 @@
 </template>
 
 <script>
+// import gql from 'graphql-tag'
+import allPlayers from '../graphql/allPlayers.gql'
 export default {
   name: 'GestionPlayer',
   data () {
     return ({
-      items: [
-        { icon: true, title: 'Jason Oner', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
-        { title: 'Bob Razozski', avatar: 'https://randomuser.me/api/portraits/men/2.jpg' },
-        { title: 'Edouard Babouche', avatar: 'https://randomuser.me/api/portraits/men/3.jpg' },
-        { title: 'Jean-Eude Martin', avatar: 'https://randomuser.me/api/portraits/men/4.jpg' }
-      ]
+      players: []
     })
   },
   methods: {
+    changeRoute (id) {
+      this.$router.push({ path: '/PagePlayer' }, this.player.id)
+    },
     buttonCreation: function () {
       this.$router.push({ path: '/PagePlayer/' })
     }
+  },
+  apollo: {
+    players: {
+      query: allPlayers
+    }
+
   }
 }
 </script>
