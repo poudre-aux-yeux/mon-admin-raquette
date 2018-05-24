@@ -6,6 +6,7 @@ import 'vuetify/dist/vuetify.min.css'
 import 'mdi/css/materialdesignicons.min.css'
 import App from './App'
 import router from './router'
+import store from './store'
 import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -13,7 +14,7 @@ import VueApollo from 'vue-apollo'
 
 const httpLink = new HttpLink({
   // You should use an absolute URL here
-  uri: 'http://192.168.43.187:3333/graphql'
+  uri: 'http://localhost:3333/graphql'
 })
 
 // Create the apollo client
@@ -35,7 +36,8 @@ Vue.use(Vuetify, {
     'orangeambre': '#FFA726',
     'jauneclair': '#FBC02D',
     'orangeclair': '#FFB74D',
-    'orangefonce': '#EF6C00'
+    'orangefonce': '#EF6C00',
+    'mattemonred': '#c52b2b'
   }
 })
 Vue.config.productionTip = false
@@ -45,6 +47,7 @@ new Vue({
   el: '#app',
   provide: apolloProvider.provide(),
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

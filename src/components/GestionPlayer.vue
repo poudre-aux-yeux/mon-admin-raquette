@@ -62,12 +62,7 @@ export default {
 </script>
 
 <style>
-    h1 {
-        color: rgb(54, 130, 244);
-    }
-    .content
-    {
-        background-image: url("../assets/tennis.jpg");
-        background-size: cover;
-    }
+  h1 {
+    color: rgb(54, 130, 244);
+  }
 </style>

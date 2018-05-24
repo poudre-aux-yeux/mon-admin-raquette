@@ -29,15 +29,6 @@ export default {
 </script>
 
 <style>
-    .content
-    {
-        background-image: url("../assets/tennis.jpg");
-        background-size: cover;
-    }
-    .login-container{
-      background-image: url("https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb");
-      background-size: cover;
-    }
     h1 {
         color: #F44336;
         font-size: 30px;
