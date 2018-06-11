@@ -47,7 +47,11 @@
 </template>
 
 <script>
+import PagePlayer from '@/components/PagePlayer'
 export default {
+  components: {
+    PagePlayer
+  },
   name: 'GestionPage',
   data: () => ({
     cards: [
@@ -59,7 +63,8 @@ export default {
   methods: {
     newElement (title) {
       if (title === 'Joueurs') {
-        this.$router.push({ path: '/PagePlayer' })
+        this.$router.push({path: '/pageplayer', name: 'PagePlayer', component: PagePlayer, params: { createPlayer: true }
+        })
       }
       if (title === 'Arbitres') {
         this.$router.push({ path: '/PageReferee' })

@@ -85,7 +85,8 @@ const routes = [
     component: PagePlayer,
     meta: {
       isAuthRequired: true
-    }
+    },
+    props: true
   },
   {
     path: '/pagestadium',

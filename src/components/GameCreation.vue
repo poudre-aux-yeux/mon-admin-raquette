@@ -27,12 +27,6 @@
       :rules="emailRules"
       required
     ></v-text-field>
-    <v-checkbox
-      label="Do you agree?"
-      v-model="checkbox"
-      :rules="[v => !!v || 'You must agree to continue!']"
-      required
-    ></v-checkbox>
 
     <v-btn
       @click="submit"

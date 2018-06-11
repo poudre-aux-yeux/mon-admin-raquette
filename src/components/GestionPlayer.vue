@@ -37,6 +37,7 @@
 <script>
 // import gql from 'graphql-tag'
 import allPlayers from '../graphql/allPlayers.gql'
+import PagePlayer from '@/components/PagePlayer'
 export default {
   name: 'GestionPlayer',
   data () {
@@ -44,12 +45,15 @@ export default {
       players: []
     })
   },
+  components: {
+    PagePlayer
+  },
   methods: {
     changeRoute (id) {
-      this.$router.push({ path: '/PagePlayer' }, this.player.id)
+      this.$router.push({path: '/pageplayer', name: 'PagePlayer', component: PagePlayer, params: { playerId: this.player.id }})
     },
     buttonCreation: function () {
-      this.$router.push({ path: '/PagePlayer/' })
+      this.$router.push({path: '/pageplayer', name: 'PagePlayer', component: PagePlayer, params: { createPlayer: true }})
     }
   },
   apollo: {
