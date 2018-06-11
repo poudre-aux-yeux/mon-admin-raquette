@@ -1,7 +1,7 @@
 <template>
   <div class="gestionpage">
      <v-layout column>
-    <v-flex xs12 sm6 offset-sm3>
+    <v-flex xs12 md6>
       <v-toolbar color="indigo" dark>
         <v-icon>mdi-tennis</v-icon>
         <v-toolbar-title>Gestion</v-toolbar-title>
