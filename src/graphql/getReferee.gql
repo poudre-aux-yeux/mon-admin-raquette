@@ -1,0 +1,5 @@
+query getReferee ($id: Int!){
+    referee (id: $id) {
+        name
+    }
+}

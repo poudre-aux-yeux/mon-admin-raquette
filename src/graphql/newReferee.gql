@@ -1,0 +1,8 @@
+mutation newReferee ($name: String!) {
+    createReferee(referee: {
+        name: $name,
+        })
+        {
+        id
+    }
+}

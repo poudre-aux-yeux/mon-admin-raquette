@@ -1,0 +1,6 @@
+query allReferee {
+    referees {
+        id
+        name
+    }
+}

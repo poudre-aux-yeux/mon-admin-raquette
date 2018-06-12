@@ -1,0 +1,5 @@
+query getStadium ($id: Int!){
+    stadium (id: $id) {
+        name
+    }
+}

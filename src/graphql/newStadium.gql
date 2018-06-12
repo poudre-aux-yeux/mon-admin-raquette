@@ -1,0 +1,8 @@
+mutation newStadium ($name: String!) {
+    createStadium(stadium: {
+        name: $name,
+        })
+        {
+        id
+    }
+}
