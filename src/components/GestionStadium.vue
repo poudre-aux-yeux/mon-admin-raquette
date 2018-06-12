@@ -8,12 +8,12 @@
            <v-icon>mdi-soccer-field</v-icon>
           <v-toolbar-title>Liste des terrains</v-toolbar-title>
           <v-spacer></v-spacer>
-          <v-btn icon>
+          <!-- <v-btn icon>
             <v-icon>search</v-icon>
           </v-btn>
           <v-btn icon>
             <v-icon>more_vert</v-icon>
-          </v-btn>
+          </v-btn> -->
         </v-toolbar>
         <v-list>
           <v-list-tile avatar v-for="item in items" :key="item.title" @click="changeRoute()">
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import PageStadium from '@/components/PageStadium'
 export default {
   name: 'GestionStadium',
   data () {
@@ -51,8 +52,11 @@ export default {
     })
   },
   methods: {
+    changeRoute (id) {
+      this.$router.push({path: '/pagerstadium', name: 'PageStadium', component: PageStadium, params: { stadiumId: this.player.id }})
+    },
     buttonCreation: function () {
-      this.$router.push({ path: '/PageStadium/' })
+      this.$router.push({path: '/pagestadium', name: 'PageStadium', component: PageStadium, params: { createStadium: true }})
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
 <v-app>
-    <v-navigation-drawer
+    <!-- <v-navigation-drawer
       fixed
       v-model="drawer"
       app
@@ -24,9 +24,9 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
     <v-toolbar class="main-toolbar" dark fixed app v-if="isLoggedIn">
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <!-- <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon> -->
       <v-toolbar-title>Admin raquette</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon @click="changeRoute('/adminpage/')">

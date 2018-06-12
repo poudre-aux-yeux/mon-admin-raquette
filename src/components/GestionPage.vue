@@ -48,6 +48,8 @@
 
 <script>
 import PagePlayer from '@/components/PagePlayer'
+import PageReferee from '@/components/PageReferee'
+import PageStadium from '@/components/PageStadium'
 export default {
   components: {
     PagePlayer
@@ -63,25 +65,25 @@ export default {
   methods: {
     newElement (title) {
       if (title === 'Joueurs') {
-        this.$router.push({path: '/pageplayer', name: 'PagePlayer', component: PagePlayer, params: { createPlayer: true }
-        })
+        console.log('ajout')
+        this.$router.push({path: '/pageplayer', name: 'PagePlayer', component: PagePlayer, params: { createPlayer: true }})
       }
       if (title === 'Arbitres') {
-        this.$router.push({ path: '/PageReferee' })
+        this.$router.push({path: '/pagereferee', name: 'PageReferee', component: PageReferee, params: { createReferee: true }})
       }
       if (title === 'Terrains') {
-        this.$router.push({ path: '/PageStadium' })
+        this.$router.push({path: '/pagestadium', name: 'PageStadium', component: PageStadium, params: { createStadium: true }})
       }
     },
     listElement (title) {
       if (title === 'Joueurs') {
-        this.$router.push({ path: '/GestionPlayer' })
+        this.$router.push({ path: '/gestionplayer' })
       }
       if (title === 'Arbitres') {
-        this.$router.push({ path: '/GestionReferee' })
+        this.$router.push({ path: '/gestionreferee' })
       }
       if (title === 'Terrains') {
-        this.$router.push({ path: '/GestionStadium' })
+        this.$router.push({ path: '/gestionstadium' })
       }
     }
   }

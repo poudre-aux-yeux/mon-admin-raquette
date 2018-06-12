@@ -3,11 +3,11 @@
    <v-layout row>
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
-        <v-card-media src="https://randomuser.me/api/portraits/men/17.jpg" height="300px" contain>
+        <v-card-media v-if="createPlayer === false" src="https://randomuser.me/api/portraits/men/17.jpg" height="300px" contain>
+        <!-- <v-card-media src="player.image" height="300px" contain> -->
           <v-layout column class="media">
             <v-card-title>
               <v-spacer></v-spacer>
-              <!-- <v-btn icon @click="editing=!editing"> -->
               <v-btn icon @click="modeModif()">
                 <v-icon color="mattemonred">edit</v-icon>
               </v-btn>
@@ -17,6 +17,8 @@
             </v-card-title>
             <v-spacer></v-spacer>
           </v-layout>
+        </v-card-media>
+        <v-card-media v-else height="300px" contain>
         </v-card-media>
         <v-list two-line>
              <v-list-tile click="">
@@ -29,7 +31,7 @@
                   placeholder="Nom"
                 ></v-text-field>
               </v-list-tile-sub-title>
-              <div v-else class="textForm">Nom en couleur</div>
+              <div v-else class="textForm">{{player.name}}</div>
             </v-list-tile-content>
           </v-list-tile>
           <v-list-tile click="">
@@ -64,10 +66,10 @@
                   </v-date-picker>
                 </v-menu>
               </v-list-tile-sub-title>
-              <div v-else class="textForm">Birth Date</div>
+              <div v-else class="textForm">{{player.birth}}</div>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile click="">
+          <v-list-tile>
             <v-list-tile-action></v-list-tile-action>
             <v-list-tile-content>
               <v-list-tile-title>Nationalité</v-list-tile-title>
@@ -76,7 +78,7 @@
                   v-model="player.nationality"
                 ></v-text-field>
               </v-list-tile-sub-title>
-              <div v-else class="textForm">pays</div>
+              <div v-else class="textForm">{{player.nationality}}</div>
             </v-list-tile-content>
           </v-list-tile>
           <v-divider inset></v-divider>
@@ -90,7 +92,7 @@
                   v-model="player.weight"
                 ></v-text-field>
               </v-list-tile-sub-title>
-              <div v-else class="textForm">lourdeur</div>
+              <div v-else class="textForm">{{player.weight}}</div>
             </v-list-tile-content>
           </v-list-tile>
           <v-list-tile click="">
@@ -102,7 +104,7 @@
                   v-model="player.ranking"
                 ></v-text-field>
               </v-list-tile-sub-title>
-              <div v-else class="textForm">rang tennis</div>
+              <div v-else class="textForm">{{player.ranking}}</div>
             </v-list-tile-content>
           </v-list-tile>
           <v-divider inset></v-divider>
@@ -117,7 +119,7 @@
                   v-model="player.titles"
                 ></v-text-field>
               </v-list-tile-sub-title>
-              <div v-else class="textForm">titres obtenus</div>
+              <div v-else class="textForm">{{player.titles}}</div>
             </v-list-tile-content>
              </v-list-tile>
             <v-list-tile click="">
@@ -130,20 +132,20 @@
                   v-model="player.height"
                 ></v-text-field>
               </v-list-tile-sub-title>
-              <div v-else class="textForm">taille du bonhomme</div>
+              <div v-else class="textForm">{{player.height}}</div>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile click="">
+          <v-list-tile v-if="createPlayer === true">
             <v-list-tile-action>
             </v-list-tile-action>
-             <v-list-tile-content>
+             <v-list-tile-content >
               <v-list-tile-title>Image</v-list-tile-title>
               <v-list-tile-sub-title v-if="createPlayer === true">
                 <v-text-field
                   v-model="player.image"
                 ></v-text-field>
               </v-list-tile-sub-title>
-              <div v-else class="textForm">image enregistrée</div>
+              <!-- <div v-else class="textForm">{{player.image}}</div> -->
             </v-list-tile-content>
           </v-list-tile>
           <v-list-tile click="">
@@ -155,7 +157,6 @@
                     <v-icon>mdi-check-outline</v-icon>
                 </v-btn>
               </v-list-tile-sub-title>
-              <div v-else class="textForm">Bouton check invisible</div>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -172,7 +173,6 @@ export default {
   name: 'PagePlayer',
   data () {
     return ({
-      editing: false,
       menu: false,
       player: {}
     })
@@ -190,13 +190,15 @@ export default {
       this.createPlayer = !this.createPlayer
     },
     addPlayer () {
-      console.log({...this.player,
-        birth: this.convertDate(this.player.birth),
-        height: parseFloat(this.player.height),
-        titles: parseInt(this.player.titles),
-        ranking: parseFloat(this.player.ranking),
-        weight: parseFloat(this.player.weight)
-      })
+      this.createPlayer = false
+      console.log('joueur ajouté')
+      // console.log({...this.player,
+      //   birth: this.convertDate(this.player.birth),
+      //   height: parseFloat(this.player.height),
+      //   titles: parseInt(this.player.titles),
+      //   ranking: parseFloat(this.player.ranking),
+      //   weight: parseFloat(this.player.weight)
+      // })
       /* this.$apollo.mutate({
         // Query
         mutation: newPlayer,

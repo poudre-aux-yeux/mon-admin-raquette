@@ -94,7 +94,8 @@ const routes = [
     component: PageStadium,
     meta: {
       isAuthRequired: true
-    }
+    },
+    props: true
   },
   {
     path: '/pagereferee',
@@ -102,7 +103,8 @@ const routes = [
     component: PageReferee,
     meta: {
       isAuthRequired: true
-    }
+    },
+    props: true
   },
   {
     path: '/test',

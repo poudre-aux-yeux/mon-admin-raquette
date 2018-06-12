@@ -8,12 +8,12 @@
            <v-icon>mdi-account-group</v-icon>
           <v-toolbar-title>Liste des joueurs</v-toolbar-title>
           <v-spacer></v-spacer>
-          <v-btn icon>
+          <!-- <v-btn icon>
             <v-icon>search</v-icon>
           </v-btn>
           <v-btn icon>
             <v-icon>more_vert</v-icon>
-          </v-btn>
+          </v-btn> -->
         </v-toolbar>
         <v-list>
           <v-list-tile avatar v-for="player in players" :key="player.id" @click="changeRoute()">
@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     changeRoute (id) {
-      this.$router.push({path: '/pageplayer', name: 'PagePlayer', component: PagePlayer, params: { playerId: this.player.id }})
+      this.$router.push({path: '/pageplayer', name: 'PagePlayer', component: PagePlayer, params: { createPlayer: false, playerId: this.player.id }})
     },
     buttonCreation: function () {
       this.$router.push({path: '/pageplayer', name: 'PagePlayer', component: PagePlayer, params: { createPlayer: true }})

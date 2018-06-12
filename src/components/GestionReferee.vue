@@ -8,12 +8,12 @@
            <v-icon>mdi-account-group</v-icon>
           <v-toolbar-title>Liste des Arbitres</v-toolbar-title>
           <v-spacer></v-spacer>
-          <v-btn icon>
+          <!-- <v-btn icon>
             <v-icon>search</v-icon>
           </v-btn>
           <v-btn icon>
             <v-icon>more_vert</v-icon>
-          </v-btn>
+          </v-btn> -->
         </v-toolbar>
         <v-list>
           <v-list-tile avatar v-for="item in items" :key="item.title" @click="changeRoute()">
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import PageReferee from '@/components/PageReferee'
 export default {
   name: 'GestionStadium',
   data () {
@@ -51,8 +52,11 @@ export default {
     })
   },
   methods: {
+    changeRoute (id) {
+      this.$router.push({path: '/pagereferee', name: 'PageReferee', component: PageReferee, params: { refereeId: this.player.id }})
+    },
     buttonCreation: function () {
-      this.$router.push({ path: '/PageReferee/' })
+      this.$router.push({path: '/pagereferee', name: 'PageReferee', component: PageReferee, params: { createReferee: true }})
     }
   }
 }
