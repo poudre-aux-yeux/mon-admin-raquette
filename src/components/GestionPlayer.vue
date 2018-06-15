@@ -60,7 +60,6 @@ export default {
     players: {
       query: allPlayers
     }
-
   }
 }
 </script>
