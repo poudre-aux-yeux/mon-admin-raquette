@@ -1,0 +1,12 @@
+mutation newMatch ($date: Time!, $stdLink: ID!, $refLink: ID!, $homePlayersLinks: [ID!]!, $awayPlayersLinks: [ID!]!) {
+    createMatch(match: {
+        date: $date,
+        stdLink: $stdLink,
+        refLink: $refLink,
+        homePlayersLinks: $homePlayersLinks,
+        awayPlayersLinks: $awayPlayersLinks
+        })
+        {
+        id
+    }
+}

@@ -3,20 +3,20 @@
    <v-layout row>
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
-        <v-card-media v-if="createReferee === false" src="https://randomuser.me/api/portraits/men/16.jpg" height="300px">
+        <v-card-media v-if="createReferee === false" src="tennisReferee.image" height="300px">
           <v-layout column class="media">
             <v-card-title>
               <v-spacer></v-spacer>
               <v-btn @click="modeModif()" dark icon class="mr-3">
-                <v-icon>edit</v-icon>
+                <v-icon color="mattemonred">edit</v-icon>
               </v-btn>
               <v-btn dark icon>
                 <v-icon>more_vert</v-icon>
               </v-btn>
             </v-card-title>
             <v-spacer></v-spacer>
-            <v-card-title class="white--text pl-5 pt-5">
-              <div class="display-1 pl-5 pt-5">Referee n°1</div>
+            <v-card-title class="pl-5 pt-5">
+              <div class="display-1 pl-5 pt-5">{{tennisReferee.name}}</div>
             </v-card-title>
           </v-layout>
         </v-card-media>
@@ -29,10 +29,22 @@
               <v-list-tile-title>Nom</v-list-tile-title>
               <v-list-tile-sub-title>
                 <v-text-field
-                  v-model="referee.name"
+                  v-model="tennisReferee.name"
                 ></v-text-field>
               </v-list-tile-sub-title>
             </v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile click="">
+            <v-list-tile-action></v-list-tile-action>
+            <v-list-tile-content v-if="createReferee === true">
+              <v-list-tile-title>Lien image</v-list-tile-title>
+              <v-list-tile-sub-title>
+                <v-text-field
+                  v-model="tennisReferee.image"
+                ></v-text-field>
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+              <div v-else class="textForm">{{tennisReferee.image}}</div>
           </v-list-tile>
             <v-list-tile-content>
               <v-list-tile-sub-title v-if="createReferee === true">
@@ -49,15 +61,16 @@
 </template>
 
 <script>
+import getReferee from '../graphql/getReferee.gql'
 export default {
   props: {
     createReferee: Boolean,
-    refereeId: Number
+    refereeId: String
   },
   name: 'PageReferee',
   data () {
     return ({
-      referee: {}
+      tennisReferee: {}
     })
   },
   methods: {
@@ -69,6 +82,16 @@ export default {
     },
     modeModif () {
       this.createReferee = !this.createReferee
+    }
+  },
+  apollo: {
+    tennisReferee: {
+      query: getReferee,
+      variables () {
+        return {
+          id: this.refereeId
+        }
+      }
     }
   }
 }
