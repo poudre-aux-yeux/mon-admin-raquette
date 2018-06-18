@@ -1,5 +1,5 @@
-query getReferee ($id: Int!){
-    referee (id: $id) {
+query getReferee ($id: ID!){
+    tennisReferee (id: $id) {
         name
         image
     }

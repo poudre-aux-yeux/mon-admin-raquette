@@ -1,5 +1,8 @@
-query getStadium ($id: Int!){
+query getStadium ($id: ID!){
     stadium (id: $id) {
         name
+        city
+        surface
+        image
     }
 }
