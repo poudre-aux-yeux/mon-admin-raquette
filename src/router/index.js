@@ -33,7 +33,7 @@ const routes = [
   },
   {
     path: '/login',
-    name: 'LoginPage',
+    name: loginRouteName,
     component: LoginPage,
     meta: {
       isAuthRequired: false
