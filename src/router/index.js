@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import AdminPage from '@/components/AdminPage'
-import CreationMatch from '@/components/CreationMatch'
 import LoginPage from '@/components/LoginPage'
 import GameCreation from '@/components/GameCreation'
 import GestionPlayer from '@/components/GestionPlayer'
@@ -105,14 +104,6 @@ const routes = [
       isAuthRequired: true
     },
     props: true
-  },
-  {
-    path: '/test',
-    name: 'CreationMatch',
-    component: CreationMatch,
-    meta: {
-      isAuthRequired: true
-    }
   }
 ]
 
