@@ -122,7 +122,7 @@ export default {
   },
   props: {
     createPlayer: Boolean,
-    playerId: Number
+    playerId: String
   },
   created () {
     this.editing = this.createPlayer
@@ -160,12 +160,16 @@ export default {
       }).catch((error) => {
         console.error(error)
       }) */
-    },
-    apollo: {
-      player: {
-        query: getPlayer
+    }
+  },
+  apollo: {
+    player: {
+      query: getPlayer,
+      variables () {
+        return {
+          id: this.playerId
+        }
       }
-
     }
   }
 }

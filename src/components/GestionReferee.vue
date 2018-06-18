@@ -1,5 +1,5 @@
 <template>
-  <div class="gestionstadium">
+  <div class="gestionreferee">
     <h1>Joueurs</h1>
     <v-layout row>
     <v-flex xs12 sm6 offset-sm3>
@@ -16,15 +16,12 @@
           </v-btn> -->
         </v-toolbar>
         <v-list>
-          <v-list-tile avatar v-for="item in items" :key="item.title" @click="changeRoute()">
-            <v-list-tile-action>
-              <v-icon v-if="item.icon" color="pink">star</v-icon>
-            </v-list-tile-action>
+          <v-list-tile avatar v-for="referee in tennisReferees" :key="referee.id" @click="changeRoute(referee.id)">
             <v-list-tile-content>
-              <v-list-tile-title v-text= "item.title"></v-list-tile-title>
+              <v-list-tile-title v-text="referee.name"></v-list-tile-title>
             </v-list-tile-content>
             <v-list-tile-avatar>
-              <img :src="item.avatar" alt="avatar">
+              <img :src="referee.image" alt="avatar">
             </v-list-tile-avatar>
           </v-list-tile>
         </v-list>
@@ -38,25 +35,29 @@
 </template>
 
 <script>
+import allReferee from '../graphql/allReferee.gql'
 import PageReferee from '@/components/PageReferee'
 export default {
-  name: 'GestionStadium',
+  name: 'GestionReferee',
   data () {
     return ({
-      items: [
-        { icon: true, title: 'Referee n°1', avatar: 'https://randomuser.me/api/portraits/men/16.jpg' },
-        { title: 'Referee n°2', avatar: 'https://randomuser.me/api/portraits/men/17.jpg' },
-        { title: 'Referee n°3', avatar: 'https://randomuser.me/api/portraits/men/18.jpg' },
-        { title: 'Referee n°4', avatar: 'https://randomuser.me/api/portraits/men/19.jpg' }
-      ]
+      tennisReferees: []
     })
   },
   methods: {
     changeRoute (id) {
-      this.$router.push({path: '/pagereferee', name: 'PageReferee', component: PageReferee, params: { refereeId: this.player.id }})
+      this.$router.push({path: '/pagereferee', name: 'PageReferee', component: PageReferee, params: { refereeId: id }})
     },
     buttonCreation: function () {
       this.$router.push({path: '/pagereferee', name: 'PageReferee', component: PageReferee, params: { createReferee: true }})
+    }
+  },
+  components: {
+    PageReferee
+  },
+  apollo: {
+    tennisReferees: {
+      query: allReferee
     }
   }
 }

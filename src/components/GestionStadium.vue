@@ -16,15 +16,12 @@
           </v-btn> -->
         </v-toolbar>
         <v-list>
-          <v-list-tile avatar v-for="item in items" :key="item.title" @click="changeRoute()">
-            <v-list-tile-action>
-              <v-icon v-if="item.icon" color="pink">star</v-icon>
-            </v-list-tile-action>
+          <v-list-tile avatar v-for="stadium in stadiums" :key="stadium.id" @click="changeRoute(stadium.id)">
             <v-list-tile-content>
-              <v-list-tile-title v-text= "item.title"></v-list-tile-title>
+              <v-list-tile-title v-text="stadium.name"></v-list-tile-title>
             </v-list-tile-content>
             <v-list-tile-avatar>
-              <img :src="item.avatar" alt="avatar">
+              <img :src="stadium.image" alt="avatar">
             </v-list-tile-avatar>
           </v-list-tile>
         </v-list>
@@ -39,24 +36,28 @@
 
 <script>
 import PageStadium from '@/components/PageStadium'
+import allStadium from '../graphql/allStadium.gql'
 export default {
   name: 'GestionStadium',
   data () {
     return ({
-      items: [
-        { icon: true, title: 'Roland Garros', avatar: '/static/stade-roland-garros.jpg' },
-        { title: 'Terre Battue', avatar: '/static/terrain.jpg' },
-        { title: 'Gazon', avatar: '/static/terrain.jpg' },
-        { title: 'Synthétique', avatar: '/static/terrain.jpg' }
-      ]
+      stadiums: []
     })
   },
   methods: {
     changeRoute (id) {
-      this.$router.push({path: '/pagerstadium', name: 'PageStadium', component: PageStadium, params: { stadiumId: this.player.id }})
+      this.$router.push({path: '/pagerstadium', name: 'PageStadium', component: PageStadium, params: { stadiumId: id }})
     },
     buttonCreation: function () {
       this.$router.push({path: '/pagestadium', name: 'PageStadium', component: PageStadium, params: { createStadium: true }})
+    }
+  },
+  components: {
+    PageStadium
+  },
+  apollo: {
+    stadiums: {
+      query: allStadium
     }
   }
 }

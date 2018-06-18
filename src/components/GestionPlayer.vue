@@ -16,7 +16,7 @@
           </v-btn> -->
         </v-toolbar>
         <v-list>
-          <v-list-tile avatar v-for="player in players" :key="player.id" @click="changeRoute()">
+          <v-list-tile avatar v-for="player in players" :key="player.id" @click="changeRoute(player.id)">
             <v-list-tile-content>
               <v-list-tile-title v-text="player.name"></v-list-tile-title>
             </v-list-tile-content>
@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     changeRoute (id) {
-      this.$router.push({path: '/pageplayer', name: 'PagePlayer', component: PagePlayer, params: { createPlayer: false, playerId: this.player.id }})
+      this.$router.push({path: '/pageplayer', name: 'PagePlayer', component: PagePlayer, params: { createPlayer: false, playerId: id }})
     },
     buttonCreation: function () {
       this.$router.push({path: '/pageplayer', name: 'PagePlayer', component: PagePlayer, params: { createPlayer: true }})

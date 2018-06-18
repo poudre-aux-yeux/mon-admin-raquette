@@ -1,4 +1,4 @@
-query getPlayer ($id: Int!){
+query getPlayer ($id: ID!){
     player (id: $id) {
         name
         image
