@@ -58,7 +58,7 @@
               <div v-else class="textForm">{{stadium.city}}</div>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile click="">
+          <!-- <v-list-tile click="">
             <v-list-tile-action></v-list-tile-action>
             <v-list-tile-content v-if="createStadium === true">
               <v-list-tile-title>Lien image</v-list-tile-title>
@@ -69,7 +69,7 @@
               </v-list-tile-sub-title>
             </v-list-tile-content>
               <div v-else class="textForm">{{stadium.image}}</div>
-          </v-list-tile>
+          </v-list-tile> -->
             <v-list-tile click="">
             <v-list-tile-action>
             </v-list-tile-action>
@@ -89,6 +89,7 @@
 </template>
 
 <script>
+import newStadium from '../graphql/newStadium.gql'
 import getStadium from '../graphql/getStadium.gql'
 export default {
   props: {
@@ -107,6 +108,19 @@ export default {
     },
     addStadium () {
       this.createStadium = false
+      this.$apollo.mutate({
+        // Query
+        mutation: newStadium,
+        variables: {
+          groundType: this.stadium.surface,
+          name: this.stadium.name,
+          city: this.stadium.city
+        }
+      }).then((data) => {
+        console.log(data)
+      }).catch((error) => {
+        console.error(error)
+      })
     },
     modeModif () {
       this.createStadium = !this.createStadium

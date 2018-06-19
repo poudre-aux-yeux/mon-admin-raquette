@@ -1,5 +1,5 @@
 mutation newReferee ($name: String!) {
-    createReferee(referee: {
+    createTennisReferee(referee: {
         name: $name,
         })
         {

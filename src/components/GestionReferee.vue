@@ -44,6 +44,9 @@ export default {
       tennisReferees: []
     })
   },
+  created () {
+    console.log('CREEEEEEEAAAAATTTTIOOONNN')
+  },
   methods: {
     changeRoute (id) {
       this.$router.push({path: '/pagereferee', name: 'PageReferee', component: PageReferee, params: { refereeId: id }})
