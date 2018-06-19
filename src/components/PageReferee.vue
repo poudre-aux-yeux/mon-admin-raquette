@@ -61,6 +61,7 @@
 </template>
 
 <script>
+import newReferee from '../graphql/newReferee.gql'
 import getReferee from '../graphql/getReferee.gql'
 export default {
   props: {
@@ -73,12 +74,26 @@ export default {
       tennisReferee: {}
     })
   },
+  created () {
+    console.log('CREEEEEEEAAAAATTTTIOOONNN')
+  },
   methods: {
     changeRoute (route) {
       this.$router.push({ path: route })
     },
     addReferee () {
       this.createReferee = false
+      this.$apollo.mutate({
+        // Query
+        mutation: newReferee,
+        variables: {
+          name: this.tennisReferee.name
+        }
+      }).then((data) => {
+        console.log(data)
+      }).catch((error) => {
+        console.error(error)
+      })
     },
     modeModif () {
       this.createReferee = !this.createReferee

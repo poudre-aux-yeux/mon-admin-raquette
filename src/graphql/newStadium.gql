@@ -1,6 +1,8 @@
-mutation newStadium ($name: String!) {
+mutation newStadium ($groundType: String!, $name: String!, $city: String!) {
     createStadium(stadium: {
+        groundType: $groundType,
         name: $name,
+        city: $city,
         })
         {
         id

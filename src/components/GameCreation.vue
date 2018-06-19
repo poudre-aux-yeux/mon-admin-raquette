@@ -133,7 +133,7 @@ export default {
       if (this.$refs.form.validate()) {
         // Native form submission is not yet supported
         console.log('Valid form')
-        this.addPlayer()
+        this.addMatch()
       }
     },
     clear () {
@@ -143,7 +143,7 @@ export default {
       let d = new Date(date)
       return d.toISOString()
     },
-    addPlayer () {
+    addMatch () {
       console.log('match ajouté')
       this.$apollo.mutate({
         // Query
@@ -157,10 +157,21 @@ export default {
         }
       }).then((data) => {
         console.log(data)
-        this.$router.go()
+        this.clearData()
       }).catch((error) => {
         console.error(error)
       })
+    },
+    clearData () {
+      this.duo = false
+      this.date = ''
+      this.modal = false
+      this.firstplayer = ''
+      this.secondplayer = ''
+      this.thirdplayer = ''
+      this.fourthplayer = ''
+      this.referee = ''
+      this.stadium = ''
     }
   },
 

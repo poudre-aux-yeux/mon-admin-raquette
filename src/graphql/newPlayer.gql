@@ -1,10 +1,13 @@
-mutation newPlayer ($name: String!, $image: String!, $birth: Time!, $nationality: String!, $titles: Int!) {
+mutation newPlayer ($name: String!, $image: String!, $birth: Time!, $nationality: String!, $titles: Int!, $weight:Int!, $ranking: Int!, $height: Int!) {
     createPlayer(player: {
         name: $name,
         image: $image,
         birth: $birth,
         nationality: $nationality,
-        titles: $titles
+        titles: $titles,
+        weight: $weight,
+        ranking: $ranking,
+        height: $height
         })
         {
         id

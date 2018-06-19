@@ -109,7 +109,7 @@
 </template>
 
 <script>
-// import newPlayer from '../graphql/newPlayer.gql'
+import newPlayer from '../graphql/newPlayer.gql'
 import getPlayer from '../graphql/getPlayer.gql'
 export default {
   name: 'PagePlayer',
@@ -145,21 +145,29 @@ export default {
       //   ranking: parseFloat(this.player.ranking),
       //   weight: parseFloat(this.player.weight)
       // })
-      /* this.$apollo.mutate({
+      this.$apollo.mutate({
         // Query
         mutation: newPlayer,
-        variables: {...this.player,
+        variables: {
+          name: this.player.name,
+          image: this.player.image,
           birth: this.convertDate(this.player.birth),
-          height: parseFloat(this.player.height),
+          nationality: this.player.nationality,
           titles: parseInt(this.player.titles),
+          weight: parseFloat(this.player.weight),
           ranking: parseFloat(this.player.ranking),
-          weight: parseFloat(this.player.weight)
+          height: parseFloat(this.player.height)
+          // birth: this.convertDate(this.player.birth),
+          // height: parseFloat(this.player.height),
+          // titles: parseInt(this.player.titles),
+          // ranking: parseFloat(this.player.ranking),
+          // weight: parseFloat(this.player.weight)
         }
       }).then((data) => {
         console.log(data)
       }).catch((error) => {
         console.error(error)
-      }) */
+      })
     }
   },
   apollo: {
